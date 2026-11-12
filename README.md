@@ -97,6 +97,16 @@ npm run data:copy -- --snapshot 20261009 --validate
 
 古いスナップショットは同じコミットで消えます。開いたままのタブが古い `dataPath` の `refs` を読むと 404 になります。
 
+### 本番を戻す
+
+本番ビルドが失敗したときは、前の本番がそのまま残ります。出たあとで壊れていたときは、一つ前の本番デプロイに戻します。
+
+```bash
+npx vercel@latest rollback <前の本番のデプロイ ID> --scope n1n9jps-projects --token "$VERCEL_TOKEN"
+```
+
+戻すと、Vercel は以後の push を本番に自動で割り当てなくなります。直したコミットを `main` に push し、そのデプロイが `READY` になったら `npx vercel@latest promote <デプロイ ID> --scope n1n9jps-projects --token "$VERCEL_TOKEN"` で本番に上げます。これで自動公開も元に戻ります。
+
 ### 非常用の CLI デプロイ
 
 Git 連携が壊れたときだけ使います。次の `main` への push で上書きされます。
