@@ -14,7 +14,7 @@ export type DeployMode = 'production' | 'preview';
 
 export interface CheckDeployDataOptions {
   dataRoot?: string;
-  production?: boolean;
+  mode?: DeployMode;
   maxTotalBytes?: number;
   minRefs?: number;
 }
@@ -34,11 +34,13 @@ function arg(name: string): string | null {
   return null;
 }
 
-export function resolveMode(options: CheckDeployDataOptions = {}): DeployMode {
-  if (options.production) return 'production';
+// システム環境変数が公開されていない本番ビルドでも検査が効くように、preview / development と明示されたときだけ緩める。
+export function resolveMode(options: CheckDeployDataOptions = {}, env: NodeJS.ProcessEnv = process.env): DeployMode {
+  if (options.mode) return options.mode;
   if (process.argv.includes('--production')) return 'production';
-  if (process.env.VERCEL_ENV === 'production') return 'production';
-  return 'preview';
+  if (process.argv.includes('--preview')) return 'preview';
+  if (env.VERCEL_ENV === 'preview' || env.VERCEL_ENV === 'development') return 'preview';
+  return 'production';
 }
 
 async function dirBytes(dir: string): Promise<number> {

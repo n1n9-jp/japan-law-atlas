@@ -15,7 +15,7 @@
 | `docs/` | 計画と先行事例 |
 | `specs/` | 実装仕様 |
 
-生 XML、コーパス、抽出結果などの中間データは Git に入れていません。正本は Cursor Project の Context です。配信データ `web/public/data/` だけはリポジトリに入れます（いまのスナップショットは `20261009`）。これは [e-Gov 法令検索](https://laws.e-gov.go.jp/) の法令データ（公共データ利用規約）を加工したものです。
+生 XML、コーパス、抽出結果などの中間データは Git に入れていません。正本は Cursor Project の Context です。配信データ `web/public/data/` だけはリポジトリに入れます（いまのスナップショットは `20261009`）。これは e-Gov 法令検索の法令データを法令アトラスが加工したものです（出典は下の「出典」）。
 
 ```
 /cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3/data/
@@ -111,7 +111,8 @@ export HOUREI_STORE=/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3
 
 ## 出典
 
-- 法令の本文と識別子、およびリポジトリの `web/public/data/` に入っている配信 JSON は、[e-Gov 法令検索](https://laws.e-gov.go.jp/) の法令データ（公共データ利用規約）を加工して作成しています。
+- 出典: [e-Gov 法令検索](https://laws.e-gov.go.jp/)（デジタル庁）の法令データ（2026年10月9日時点のものを取得）、[公共データ利用規約（第1.0版）](https://www.digital.go.jp/resources/open_data/public_data_license_v1.0)（PDL1.0）。
+- `web/public/data/` の配信 JSON（法令の一覧、参照関係、位置、条文の言及）とサイトの地図は、上の法令データをもとに法令アトラス（[n1n9-jp/japan-law-atlas](https://github.com/n1n9-jp/japan-law-atlas)）が加工して作成したものです。国やデジタル庁が作成した未加工のデータではありません。参照関係は機械的に抽出したもので、誤りを含むことがあります。正確な条文は e-Gov 法令検索や官報で確かめてください。
 - 略称・別名辞書は [JLaw-CiteGraph](https://github.com/yabooung/jp-law-citation-graph)（Apache License 2.0）のソースを `pipeline/vendor/jlawcite/` に置いて使っています。JLaw プロジェクト全体の評価データは CC BY 4.0 です。
 
 ## ライセンス

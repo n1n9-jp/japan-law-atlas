@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { CONTRACT_VERSION } from '../lib/shared/contract.ts';
-import { checkDeployData } from '../scripts/check-deploy-data.ts';
+import { checkDeployData, resolveMode } from '../scripts/check-deploy-data.ts';
 
 const emptyRows = {
   other: [] as number[],
@@ -132,12 +132,12 @@ describe('checkDeployData', () => {
     await writeLatest(root, 'mock-20261008');
     await writeSnapshot(root, 'mock-20261008', { isMock: true, refs: 2 });
 
-    const preview = await checkDeployData({ dataRoot: root });
+    const preview = await checkDeployData({ dataRoot: root, mode: 'preview' });
     expect(preview.ok).toBe(true);
     expect(preview.mode).toBe('preview');
     expect(preview.snapshotId).toBe('mock-20261008');
 
-    const production = await checkDeployData({ dataRoot: root, production: true, minRefs: 1 });
+    const production = await checkDeployData({ dataRoot: root, mode: 'production', minRefs: 1 });
     expect(production.ok).toBe(false);
     expect(production.mode).toBe('production');
     expect(production.issues.some((m) => m.includes('mock'))).toBe(true);
@@ -148,7 +148,7 @@ describe('checkDeployData', () => {
     await writeLatest(root, '20261009');
     await writeSnapshot(root, '20261009', { isMock: false, refs: 1000 });
 
-    const result = await checkDeployData({ dataRoot: root, production: true });
+    const result = await checkDeployData({ dataRoot: root, mode: 'production' });
     expect(result.issues).toEqual([]);
     expect(result.ok).toBe(true);
     expect(result.snapshotId).toBe('20261009');
@@ -162,7 +162,7 @@ describe('checkDeployData', () => {
     await writeSnapshot(root, '20261009', { isMock: false, refs: 2 });
     await mkdir(path.join(root, 'extra-snap'));
 
-    const result = await checkDeployData({ dataRoot: root });
+    const result = await checkDeployData({ dataRoot: root, mode: 'preview' });
     expect(result.ok).toBe(false);
     expect(result.issues.some((m) => m.includes('extra-snap') || m.includes('だけ'))).toBe(true);
   });
@@ -172,8 +172,15 @@ describe('checkDeployData', () => {
     await writeLatest(root, '20261009');
     await writeSnapshot(root, '20261009', { isMock: false, refs: 1000 });
 
-    const result = await checkDeployData({ dataRoot: root, production: true, maxTotalBytes: 1 });
+    const result = await checkDeployData({ dataRoot: root, mode: 'production', maxTotalBytes: 1 });
     expect(result.ok).toBe(false);
     expect(result.issues.some((m) => m.includes('上限') && m.includes('1 bytes'))).toBe(true);
+  });
+
+  it('VERCEL_ENV が preview / development のときだけ緩め、それ以外は本番として検査する', () => {
+    expect(resolveMode({}, { VERCEL_ENV: 'production' })).toBe('production');
+    expect(resolveMode({}, {})).toBe('production');
+    expect(resolveMode({}, { VERCEL_ENV: 'preview' })).toBe('preview');
+    expect(resolveMode({}, { VERCEL_ENV: 'development' })).toBe('preview');
   });
 });

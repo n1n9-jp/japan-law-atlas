@@ -2,7 +2,7 @@
 
 法令アトラスの Web（Next.js 16.4.5）。セットアップと公開の手順はリポジトリ直下の [README.md](../README.md) を見てください。
 
-配信データは `public/data/20261009/`（e-Gov 法令検索の法令データを加工したもの）。軽く試すなら `npm run data:copy -- --snapshot mock-20261008`（コミットしない）。共有コードの正本は `../shared/`。コピーは `npm run sync:shared`。
+配信データは `public/data/20261009/`。e-Gov 法令検索の法令データを法令アトラスが加工したもの（出典の書き方は直下の README）。軽く試すなら `npm run data:copy -- --snapshot mock-20261008`（コミットしない）。共有コードの正本は `../shared/`。コピーは `npm run sync:shared`。
 
 ```bash
 npm ci
