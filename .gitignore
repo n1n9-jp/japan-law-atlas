@@ -1,0 +1,51 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# next.js / vercel
+.next/
+out/
+.vercel/
+build/
+
+# typescript / python
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+*.pyc
+*.pyo
+
+# env and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.json
+
+# logs / os
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# generated corpora and artifacts (not this repo)
+/data/
+/media/
+/internal/reports/
+
+# test output
+coverage/
+test-results/
+playwright-report/
+blob-report/
+/tmp/

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "."
+  },
+  "include": [
+    "src/**/*.ts",
+    "lib/corpus-types.ts",
+    "lib/shared/egov-tree.ts",
+    "lib/shared/contract.ts",
+    "test/**/*.ts",
+    "lib/ref-types.ts"
+  ]
+}

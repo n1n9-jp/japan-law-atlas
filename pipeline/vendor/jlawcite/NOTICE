@@ -1,0 +1,15 @@
+JLaw-CiteGraph abbreviation dictionaries
+========================================
+
+Files in this directory (`jp_abbrev_kit.json`, `jp_law_aliases.json`) are
+taken from:
+
+  https://github.com/yabooung/jp-law-citation-graph
+  path: src/jlawcite/
+
+License: Apache License 2.0 (see LICENSE in this directory)
+Data for the project at large is CC BY 4.0; these JSON dictionaries are
+source files of the Apache-2.0 licensed code.
+
+Used by the 法令アトラス extractor (m1-02) as a name alias dictionary,
+with attribution as required by Apache-2.0.

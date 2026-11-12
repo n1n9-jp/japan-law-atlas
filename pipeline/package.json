@@ -1,0 +1,40 @@
+{
+  "name": "hourei-atlas-pipeline",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "corpus": "tsx src/corpus/cli.ts",
+    "extract": "tsx src/extract/cli.ts",
+    "eval": "tsx src/eval/cli.ts",
+    "graph": "tsx src/graph/cli.ts",
+    "export": "tsx src/export/cli.ts",
+    "test": "vitest run",
+    "test:api": "vitest run test/corpus/api-match.test.ts",
+    "typecheck": "tsc --noEmit",
+    "sync:shared": "node scripts/shared.mjs sync",
+    "check:shared": "node scripts/shared.mjs check"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.80",
+    "culori": "^4.0.2",
+    "d3-contour": "^4.0.2",
+    "domhandler": "^6.0.0",
+    "graphology": "^0.26.0",
+    "graphology-communities-louvain": "^2.0.2",
+    "graphology-layout-forceatlas2": "^0.10.1",
+    "graphology-layout-noverlap": "^0.4.2",
+    "graphology-metrics": "^2.4.2",
+    "htmlparser2": "^12.0.0",
+    "polylabel": "^2.0.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.8",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.3"
+  }
+}

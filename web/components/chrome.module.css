@@ -1,0 +1,365 @@
+.shell {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+}
+
+.map canvas {
+  background: var(--bg);
+  display: block;
+}
+
+.brand {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 4;
+  pointer-events: none;
+  background: var(--bg);
+  padding: 8px 14px 10px 10px;
+  border-radius: 8px;
+}
+
+.logo {
+  font-family: var(--font-law);
+  font-weight: 600;
+  font-size: 22px;
+  font-feature-settings: "palt";
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sub {
+  margin: 2px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.mock {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--kind-basis);
+}
+
+.searchWrap {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  z-index: 5;
+  background: var(--bg);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 0 10px;
+  height: 40px;
+}
+
+.search input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.kbd {
+  font-size: 11px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 6px;
+  line-height: 18px;
+}
+
+.list {
+  margin-top: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  max-height: 320px;
+  overflow: auto;
+  padding: 4px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.option[aria-selected="true"] {
+  background: var(--surface-2);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.meta {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.strong {
+  font-weight: 700;
+}
+
+.topRight {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+}
+
+.iconBtn {
+  height: 36px;
+  padding: 0 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+}
+
+.infoBtn {
+  height: 36px;
+  width: 36px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+}
+
+.legend {
+  position: absolute;
+  left: 16px;
+  bottom: 36px;
+  z-index: 4;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 10px 12px;
+  max-width: 280px;
+  max-height: 48vh;
+  overflow: auto;
+}
+
+.legendTitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 3px 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.zoom {
+  position: absolute;
+  right: 16px;
+  bottom: 36px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.note {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.attr {
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--text-muted);
+  font-size: 11px;
+  max-width: min(720px, 70vw);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: var(--bg);
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--text-muted);
+  font-size: 11px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.error {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 6;
+  background: var(--bg);
+}
+
+.popup {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 14px;
+  width: 320px;
+  max-height: min(70vh, 520px);
+  overflow: auto;
+  transform-origin: var(--transform-origin);
+  transition: transform 160ms var(--ease-out), opacity 160ms var(--ease-out);
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+  transform: scale(0.97);
+}
+
+.popup[data-ending-style] {
+  transition-duration: 120ms;
+}
+
+.field {
+  display: block;
+  margin: 10px 0 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+}
+
+.check {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tooltip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 6px 8px;
+  font-size: 12px;
+  pointer-events: none;
+  transition: opacity 120ms var(--ease-out);
+}
+
+.tooltip[data-instant="true"] {
+  transition-duration: 0ms;
+}
+
+.legendToggle {
+  display: none;
+}
+
+.legendClose {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .searchWrap {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    transform: none;
+  }
+  .brand {
+    top: 60px;
+  }
+  .legendToggle {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 12px;
+    bottom: 36px;
+    z-index: 4;
+  }
+  .legendToggle[data-open="true"] {
+    display: none;
+  }
+  .legend {
+    display: none;
+    max-width: min(280px, calc(100vw - 24px));
+    max-height: 40vh;
+  }
+  .legend[data-open="true"] {
+    display: block;
+  }
+  .legendClose {
+    display: flex;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .iconBtn:hover,
+  .option:hover,
+  .row:hover {
+    background: var(--surface-2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup {
+    transition: opacity 150ms var(--ease-out);
+    transform: none;
+  }
+  .popup[data-starting-style],
+  .popup[data-ending-style] {
+    transform: none;
+  }
+}

@@ -1,0 +1,77 @@
+:root {
+  --bg: #0b0f14;
+  --surface: #121821;
+  --surface-2: #18202b;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8e6e1;
+  --text-muted: #9aa3ae;
+  --accent: #8ab4ff;
+  --kind-basis: #f2b84b;
+  --kind-implements: #f5d58a;
+  --kind-amend: #8a94a6;
+  --kind-junyo: #b48cf2;
+  --kind-rei: #f28cc0;
+  --kind-exclude: #f2766b;
+  --kind-term: #5cc8e0;
+  --kind-cite: #d9dee7;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --font-ui: var(--font-sans), "Noto Sans JP", system-ui, sans-serif;
+  --font-law: var(--font-serif), "Noto Serif JP", serif;
+  --radius-panel: 10px;
+  --radius-btn: 8px;
+  --radius-chip: 999px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 13px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+.sr-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.pressable {
+  transition: transform 160ms var(--ease-out);
+}
+
+.pressable:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pressable {
+    transition: opacity 150ms var(--ease-out);
+  }
+  .pressable:active {
+    transform: none;
+  }
+}

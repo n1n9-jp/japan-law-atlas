@@ -1,0 +1,44 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`mini-law snapshots > snapshot 129AC0000000089 1`] = `
+"# 129AC0000000089
+refs=1 abbrevs=0 delegations=0 definedTerms=0 unresolved=0
+
+[L7-relative] m.a245.p1#1 0-3 "前二条" → 129AC0000000089 m.a243..m.a244 kind=junyo status=self flags=range|relative conf=0.95
+"
+`;
+
+exports[`mini-law snapshots > snapshot 322AC0000000067 1`] = `
+"# 322AC0000000067
+refs=2 abbrevs=0 delegations=0 definedTerms=0 unresolved=0
+
+[L7-relative] m.a3.p1#1 0-3 "前二条" → 322AC0000000067 m.a1..m.a2 kind=junyo status=self flags=range|relative conf=0.95
+[L7-relative] m.a3.p1#1 8-10 "前項" → 322AC0000000067 kind=junyo status=self flags=relative conf=0.95
+"
+`;
+
+exports[`mini-law snapshots > snapshot 322M40000100023 1`] = `
+"# 322M40000100023
+refs=6 abbrevs=1 delegations=0 definedTerms=0 unresolved=0
+
+[L1-number] m.a7_2.p1.i2#1 19-40 "金融商品取引法（昭和二十三年法律第二十五号" → 323AC0000000025 kind=cite status=current flags=lawLevelOnly conf=1.00
+[L1-number] m.a7_2.p1.i2#1 53-59 "第二条第九項" → 323AC0000000025 m.a2.p9 kind=term status=current flags=enumCarry conf=1.00
+[L2-abbrev] m.a7_2.p1.i2#1 73-84 "金商法第二十八条第一項" → 323AC0000000025 m.a28.p1 kind=term status=current flags=viaAbbrev conf=0.95
+[L2-abbrev] m.a7_2.p1.i2#1 107-122 "金商法第二十九条の四の二第八項" → 323AC0000000025 m.a29_4_2.p8 kind=term status=current flags=viaAbbrev conf=0.95
+[L2-abbrev] m.a7_2.p1.i2#1 142-157 "金商法第二十九条の四の四第七項" → 323AC0000000025 m.a29_4_4.p7 kind=term status=current flags=viaAbbrev conf=0.95
+[L7-relative] m.a7_2.p1.i2#1 187-190 "この号" → 322M40000100023 m.a7_2.p1.i2 kind=cite status=self flags=relative conf=0.95
+
+## abbrevs
+- 金商法 → 323AC0000000025 scope=main+suppl+supplAmend+appdx @ m.a7_2.p1.i2#1
+"
+`;
+
+exports[`mini-law snapshots > snapshot 332CO0000000043 1`] = `
+"# 332CO0000000043
+refs=3 abbrevs=0 delegations=0 definedTerms=0 unresolved=0
+
+[L1-number] e#1 4-26 "租税特別措置法（昭和三十二年法律第二十六号）" → 332AC0000000026 kind=basis status=current flags=lawLevelOnly conf=1.00
+[L3-anaphora] e#1 35-37 "同法" → 332AC0000000026 kind=basis status=current flags=viaAnaphora|lawLevelOnly conf=0.85
+[L4-self] e#1 45-49 "この政令" → 332CO0000000043 kind=basis status=self flags=lawLevelOnly conf=1.00
+"
+`;

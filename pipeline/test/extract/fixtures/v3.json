@@ -1,0 +1,606 @@
+[
+  {
+    "id": "v3-paren-carry-kaisha-1",
+    "rule": "L6-provision",
+    "lawId": "323AC0000000025",
+    "pid": "m.a144.p1",
+    "text": "会社法第二百十九条第一項（第六号に係る部分に限る。）、第二項（第四号に係る部分に限る。）及び第三項、第二百二十条並びに第二百九十三条の規定を適用する。",
+    "expected": [
+      {"mention": "会社法第二百十九条第一項", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p1", "kind": "cite", "rule": "L5-name"},
+      {"mention": "第六号", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p1.i6", "kind": "cite", "rule": "L6-provision", "flagsNamed": ["enumCarry"]},
+      {"mention": "第二項", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p2", "kind": "cite", "rule": "L6-provision", "flagsNamed": ["enumCarry"]},
+      {"mention": "第三項", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p3", "kind": "cite", "rule": "L6-provision", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-paren-carry-kaisha-2",
+    "rule": "L6-provision",
+    "lawId": "343AC0000000086",
+    "pid": "m.a53.p2",
+    "title": "金融機関の合併及び転換に関する法律",
+    "text": "会社法第二百十九条第一項（第六号に係る部分に限る。）、第二百二十条及び第二百九十三条第一項の規定を準用する。",
+    "expected": [
+      {"mention": "会社法第二百十九条第一項", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p1", "kind": "junyo", "rule": "L5-name"},
+      {"mention": "第六号", "tgtLaw": "417AC0000000086", "tgtPid": "m.a219.p1.i6", "kind": "junyo", "rule": "L6-provision", "flagsNamed": ["enumCarry"]},
+      {"mention": "第二百二十条", "tgtLaw": "417AC0000000086", "tgtPid": "m.a220", "kind": "junyo", "rule": "L6-provision", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-paren-inner-not-carry-1",
+    "rule": "L6-provision",
+    "lawId": "323AC0000000137",
+    "title": "興行場法",
+    "pid": "s6.a1.p1.i3",
+    "part": "supplAmend",
+    "text": "第二十二条の規定（診療放射線技師法第十二条から第十五条までの改正規定を除く。）並びに第五十条の規定",
+    "expected": [
+      {"mention": "第二十二条", "tgtLaw": null, "tgtPid": "m.a22", "tgtStatus": "amendingLaw", "rule": "L6-provision"},
+      {"mention": "診療放射線技師法第十二条から第十五条まで", "tgtLaw": "326AC0100000226", "tgtPid": "m.a12", "tgtEnd": "m.a15", "rule": "L5-name"},
+      {"mention": "第五十条", "tgtLaw": null, "tgtPid": "m.a50", "tgtStatus": "amendingLaw", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-paren-inner-not-carry-2",
+    "rule": "L6-provision",
+    "lawId": "403AC0000000077",
+    "title": "暴力団員による不当な行為の防止等に関する法律",
+    "pid": "s40.a1.p1.i2",
+    "part": "supplAmend",
+    "text": "第五条の規定（労働者派遣事業の適正な運営の確保及び派遣労働者の保護等に関する法律第四十四条から第四十六条までの改正規定を除く。）並びに第七条の規定",
+    "expected": [
+      {"mention": "第五条", "tgtLaw": null, "tgtPid": "m.a5", "tgtStatus": "amendingLaw", "rule": "L6-provision"},
+      {"mention": "第七条", "tgtLaw": null, "tgtPid": "m.a7", "tgtStatus": "amendingLaw", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-scope-paren-1",
+    "rule": "L7-relative",
+    "lawId": "322AC0000000067",
+    "pid": "s518.a19.p1",
+    "part": "supplAmend",
+    "articles": ["s518.a19"],
+    "text": "第六条の規定による改正後の地方自治法（第三項において「新地方自治法」という。）第二百三十一条の二の三第一項の規定の例による。",
+    "expected": [
+      {"mention": "第三項", "tgtLaw": "322AC0000000067", "tgtPid": "s518.a19.p3", "tgtStatus": "self", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-scope-paren-2",
+    "rule": "L6-provision",
+    "lawId": "357M50000040015",
+    "title": "信用金庫法施行規則",
+    "pid": "s97.a5.p1",
+    "part": "supplAmend",
+    "articles": ["s97.a5"],
+    "text": "第四条の規定による改正後の信用金庫法施行規則（第四項において「新信用金庫法施行規則」という。）第四十二条第六号の規定は、適用しない。",
+    "expected": [
+      {"mention": "第四項", "tgtLaw": "357M50000040015", "tgtPid": "s97.a5.p4", "tgtStatus": "self", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-kitei-narabi-1",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "m.a1.p1",
+    "text": "民法第一条の規定並びに第二条の規定を適用する。",
+    "expected": [
+      {"mention": "民法第一条", "tgtLaw": "129AC0000000089", "tgtPid": "m.a1", "rule": "L5-name"},
+      {"mention": "第二条", "tgtLaw": "129AC0000000089", "tgtPid": "m.a2", "rule": "L6-provision", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-honbun-narabi-1",
+    "rule": "L6-provision",
+    "lawId": "414AC0000000053",
+    "pid": "m.a14.p1",
+    "text": "土地の所有者等は、第三条第一項本文及び第八項、第四条第三項本文並びに第五条第一項の規定の適用を受けない土地の土壌について調査する。",
+    "expected": [
+      {"mention": "第三条第一項", "tgtLaw": "414AC0000000053", "tgtPid": "m.a3.p1", "rule": "L6-provision"},
+      {"mention": "第八項", "tgtLaw": "414AC0000000053", "tgtPid": "m.a3.p8", "rule": "L6-provision", "flagsNamed": ["enumCarry"]},
+      {"mention": "第四条第三項", "tgtLaw": "414AC0000000053", "tgtPid": "m.a4.p3", "rule": "L6-provision"},
+      {"mention": "第五条第一項", "tgtLaw": "414AC0000000053", "tgtPid": "m.a5.p1", "rule": "L6-provision", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-honbun-narabi-2",
+    "rule": "L6-provision",
+    "lawId": "323AC0000000130",
+    "title": "船員職業安定法",
+    "pid": "m.a89.p11",
+    "text": "乗組み派遣船員の派遣就業に関しては、船員法第八十五条第一項及び第八十六条第一項本文並びに第八十七条の規定は、適用しない。",
+    "expected": [
+      {"mention": "船員法第八十五条第一項", "tgtLaw": "322AC0000000100", "tgtPid": "m.a85.p1", "rule": "L5-name"},
+      {"mention": "第八十六条第一項", "tgtLaw": "322AC0000000100", "tgtPid": "m.a86.p1", "rule": "L6-provision", "flagsNamed": ["enumCarry"]},
+      {"mention": "第八十七条", "tgtLaw": "322AC0000000100", "tgtPid": "m.a87", "rule": "L6-provision", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-transparent-1",
+    "rule": "L5-name",
+    "lawId": "325CO0000000201",
+    "title": "建築士法施行令",
+    "lawType": "CabinetOrder",
+    "pid": "m.a1.p1",
+    "text": "建築士法（以下「法」という。）第五条第六項の政令で定める事項は、次のとおりとする。",
+    "expected": [
+      {"mention": "建築士法", "tgtLaw": "325AC1000000202", "tgtPid": null, "rule": "L5-name"},
+      {"mention": "第五条第六項", "tgtLaw": "325AC1000000202", "tgtPid": "m.a5.p6", "kind": "implements", "rule": "L5-name", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-transparent-s1-1",
+    "rule": "L2-abbrev",
+    "lawId": "325CO0000000201",
+    "title": "建築士法施行令",
+    "lawType": "CabinetOrder",
+    "pid": "s1.a1.p1",
+    "part": "suppl",
+    "sentences": [
+      {"pid": "m.a1.p1", "sent": 1, "part": "main", "text": "建築士法（以下「法」という。）第五条第六項の政令で定める事項は、次のとおりとする。"},
+      {"pid": "s1.a1.p1", "sent": 1, "part": "suppl", "text": "法第四条の規定は、この政令の施行の日から適用する。"}
+    ],
+    "expectedPid": "s1.a1.p1",
+    "expected": [
+      {"mention": "法第四条", "tgtLaw": "325AC1000000202", "tgtPid": "m.a4", "rule": "L2-abbrev"}
+    ]
+  },
+  {
+    "id": "v3-transparent-2",
+    "rule": "L5-name",
+    "lawId": "325M50080000010",
+    "title": "放送法施行規則",
+    "lawType": "Rule",
+    "pid": "s125.p3",
+    "part": "supplAmend",
+    "text": "この省令の施行の際現に有料放送事業者（放送法（以下「法」という。）第百四十七条第一項に規定する有料放送事業者をいう。）が提供している有料放送",
+    "expected": [
+      {"mention": "放送法", "tgtLaw": "325AC0000000132", "tgtPid": null, "rule": "L5-name"},
+      {"mention": "第百四十七条第一項", "tgtLaw": "325AC0000000132", "tgtPid": "m.a147.p1", "kind": "term", "rule": "L5-name", "flagsNamed": ["enumCarry"]}
+    ]
+  },
+  {
+    "id": "v3-dojo-merge-1",
+    "rule": "L3-anaphora",
+    "lawId": "409CO0000000346",
+    "title": "環境影響評価法施行令",
+    "lawType": "CabinetOrder",
+    "pid": "t1",
+    "part": "appdx",
+    "text": "鉄道事業法第十二条第一項又は同条第四項において準用する同法第九条第一項の認可",
+    "expected": [
+      {"mention": "鉄道事業法第十二条第一項", "tgtLaw": "361AC0000000092", "tgtPid": "m.a12.p1", "rule": "L5-name"},
+      {"mention": "同条第四項", "tgtLaw": "361AC0000000092", "tgtPid": "m.a12.p4", "rule": "L3-anaphora"},
+      {"mention": "同法第九条第一項", "tgtLaw": "361AC0000000092", "tgtPid": "m.a9.p1", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "v3-dojo-merge-2",
+    "rule": "L3-anaphora",
+    "lawId": "330AC0000000097",
+    "pid": "s23.a6.p1",
+    "part": "supplAmend",
+    "text": "改正前の自動車損害賠償保障法第十条の二第一項又は同条第四項において準用する第九条の二第四項の規定により交付された保険除外標章",
+    "expected": [
+      {"mention": "改正前の自動車損害賠償保障法第十条の二第一項", "tgtLaw": "330AC0000000097", "tgtPid": "m.a10_2.p1", "rule": "L5-name"},
+      {"mention": "同条第四項", "tgtLaw": "330AC0000000097", "tgtPid": "m.a10_2.p4", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "v3-dokou-merge-1",
+    "rule": "L3-anaphora",
+    "lawId": "323AC0000000168",
+    "title": "少年法",
+    "pid": "m.a3.p2",
+    "text": "家庭裁判所は、前項第二号に掲げる少年及び同項第三号に掲げる少年で十四歳に満たない者については、これを審判に付することができる。",
+    "expected": [
+      {"mention": "前項第二号", "tgtLaw": "323AC0000000168", "tgtPid": "m.a3.p1.i2", "rule": "L7-relative"},
+      {"mention": "同項第三号", "tgtLaw": "323AC0000000168", "tgtPid": "m.a3.p1.i3", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "v3-zenjo-merge-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a3_3.p2",
+    "articles": ["m.a3_2", "m.a3_3"],
+    "text": "前項の規定は、前条第二項第一号及び第二号に掲げる貨物には適用しない。",
+    "expected": [
+      {"mention": "前条第二項第一号", "tgtLaw": "143AC0000000054", "tgtPid": "m.a3_2.p2.i1", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-zenjo-merge-2",
+    "rule": "L7-relative",
+    "lawId": "324AC0000000185",
+    "pid": "m.a23.p2",
+    "articles": ["m.a22", "m.a23"],
+    "text": "前条第二項及び第三項の規定は、前項の認定の更新について準用する。",
+    "expected": [
+      {"mention": "前条第二項", "tgtLaw": "324AC0000000185", "tgtPid": "m.a22.p2", "kind": "junyo", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-dofa-in-num-1",
+    "rule": "L3-anaphora",
+    "lawId": "415CO0000000478",
+    "title": "国立大学法人法施行令",
+    "lawType": "CabinetOrder",
+    "pid": "s1.a16.p1",
+    "part": "suppl",
+    "text": "国立大学法人等の成立前に行政機関の保有する情報の公開に関する法律（平成十一年法律第四十二号。同法第二条第二項に規定する行政文書の開示に係る部分に限る。）の規定に基づき旧機関の長がした行為",
+    "expected": [
+      {"mention": "同法第二条第二項", "tgtLaw": "411AC0000000042", "tgtPid": "m.a2.p2", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "v3-dofa-in-num-2",
+    "rule": "L3-anaphora",
+    "lawId": "344M50004000049",
+    "title": "都市計画法施行規則",
+    "lawType": "MinisterialOrdinance",
+    "pid": "m.a13_3.p1.i2.i3",
+    "text": "暴力団員による不当な行為の防止等に関する法律（平成三年法律第七十七号。同法第三十二条の三第七項の規定を除く。）に違反し、罰金の刑に処せられた者",
+    "expected": [
+      {"mention": "同法第三十二条の三第七項", "tgtLaw": "403AC0000000077", "tgtPid": "m.a32_3.p7", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "v3-konojo-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a4_2.p1",
+    "text": "当該輸入貨物と同種又は類似の貨物（以下この条において「同種又は類似の貨物」という。）に係る取引価格があるときは、当該輸入貨物の課税価格は、当該同種又は類似の貨物の取引価格とする。",
+    "expected": [
+      {"mention": "この条", "tgtLaw": "143AC0000000054", "tgtPid": "m.a4_2", "rule": "L7-relative", "flagsNamed": ["relative"]}
+    ]
+  },
+  {
+    "id": "v3-konojo-2",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a7.p1",
+    "text": "本邦の産業（以下この条において同じ。）に実質的な損害を与える事実（以下この条において「本邦の産業に与える実質的な損害等の事実」という。）がある場合",
+    "expected": [
+      {"mention": "この条", "tgtLaw": "143AC0000000054", "tgtPid": "m.a7", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-konoko-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a3_3.p1",
+    "text": "輸入貨物（本邦に入国する者がその入国の際に携帯して輸入し、又は前条第一項の政令で定めるところにより別送して輸入する貨物を除く。以下この項において同じ。）に対する関税の率は、別表の付表第二による。",
+    "expected": [
+      {"mention": "この項", "tgtLaw": "143AC0000000054", "tgtPid": "m.a3_3.p1", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-konoko-2",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a4.p3",
+    "text": "本邦にある者（以下この項において「委託者」という。）から委託を受けた者（以下この項において「受託者」という。）が加工をする場合",
+    "expected": [
+      {"mention": "この項", "tgtLaw": "143AC0000000054", "tgtPid": "m.a4.p3", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-konogou-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a4.p2.i4",
+    "text": "売手と買手との間に特殊関係（以下この号及び第四条の三第一項において同じ。）がある場合",
+    "expected": [
+      {"mention": "この号", "tgtLaw": "143AC0000000054", "tgtPid": "m.a4.p2.i4", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-konogou-2",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "m.a4_3.p1.i1",
+    "text": "その輸入申告の時（以下この号及び次号において「課税物件確定の時」という。）における性質及び形状により販売された貨物",
+    "expected": [
+      {"mention": "この号", "tgtLaw": "143AC0000000054", "tgtPid": "m.a4_3.p1.i1", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-honkou-1",
+    "rule": "L7-relative",
+    "lawId": "322AC0000000067",
+    "pid": "m.a98.p2",
+    "text": "議会は、監査委員に対し、本項の監査の対象とすることが適当でないものとして政令で定めるものを除く事務に関する監査を求め、監査の結果に関する報告を請求することができる。",
+    "expected": [
+      {"mention": "本項", "tgtLaw": "322AC0000000067", "tgtPid": "m.a98.p2", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-honkou-2",
+    "rule": "L7-relative",
+    "lawId": "322AC0000000067",
+    "pid": "m.a228.p1",
+    "text": "手数料について全国的に統一して定めることが特に必要と認められるものとして政令で定める事務（以下本項において「標準事務」という。）について手数料を徴収する場合",
+    "expected": [
+      {"mention": "本項", "tgtLaw": "322AC0000000067", "tgtPid": "m.a228.p1", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-sho-zenjo-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "s77.a3.p1",
+    "part": "supplAmend",
+    "articles": ["s77.a1", "s77.a3"],
+    "text": "前条に規定するもののほか、この法律の施行に関し必要な経過措置は、政令で定める。",
+    "expected": [
+      {"mention": "前条", "tgtLaw": "143AC0000000054", "tgtPid": "s77.a2", "rule": "L7-relative", "flagsNamed": ["relative"]}
+    ]
+  },
+  {
+    "id": "v3-sho-zenjo-2",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "s81.a3.p1",
+    "part": "supplAmend",
+    "articles": ["s81.a1", "s81.a3"],
+    "text": "前条に規定するもののほか、この法律の施行に関し必要な経過措置は、政令で定める。",
+    "expected": [
+      {"mention": "前条", "tgtLaw": "143AC0000000054", "tgtPid": "s81.a2", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-sho-jijo-1",
+    "rule": "L7-relative",
+    "lawId": "143AC0000000054",
+    "pid": "s90.a1.p1",
+    "part": "supplAmend",
+    "articles": ["s90.a1", "s90.a4"],
+    "text": "次条の規定は、この法律の施行の日から適用する。",
+    "expected": [
+      {"mention": "次条", "tgtLaw": "143AC0000000054", "tgtPid": "s90.a2", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-sho-jijo-2",
+    "rule": "L7-relative",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "articles": ["s2.a1", "s2.a3"],
+    "text": "次条から附則第四条までの規定は、公布の日から施行する。",
+    "expected": [
+      {"mention": "次条", "tgtLaw": "129AC0000000089", "tgtPid": "s2.a2", "rule": "L7-relative"}
+    ]
+  },
+  {
+    "id": "v3-prefix-shin-1",
+    "rule": "L5-name",
+    "lawId": "143AC0000000054",
+    "pid": "s31.a2.p3",
+    "part": "supplAmend",
+    "text": "旧定率法第二十一条第五項の決定の通知に係る不服申立てについては、新関税法第八十九条の異議申立てを経ずに、直ちに大蔵大臣に対して審査請求をすることができる。",
+    "expected": [
+      {"mention": "新関税法第八十九条", "tgtLaw": "329AC0000000061", "tgtPid": "m.a89", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-prefix-shin-2",
+    "rule": "L5-name",
+    "lawId": "143AC0000000054",
+    "pid": "s31.a2.p4",
+    "part": "supplAmend",
+    "text": "第二項の規定は、新関税法第八十九条第二項の期間内にされたものについて準用する。",
+    "expected": [
+      {"mention": "新関税法第八十九条第二項", "tgtLaw": "329AC0000000061", "tgtPid": "m.a89.p2", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-prefix-kaiseimae-1",
+    "rule": "L5-name",
+    "lawId": "143AC0000000054",
+    "pid": "s20.a2.p1",
+    "part": "supplAmend",
+    "text": "改正前の関税定率法の規定は、なお従前の例による。",
+    "expected": [
+      {"mention": "改正前の関税定率法", "tgtLaw": "143AC0000000054", "tgtPid": null, "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-prefix-kaiseimae-abbrev-1",
+    "rule": "L2-abbrev",
+    "lawId": "324AC0000000185",
+    "pid": "s15.a5.p1",
+    "part": "supplAmend",
+    "sentences": [
+      {"pid": "s15.a4.p1", "sent": 1, "part": "supplAmend", "text": "この法律の施行の際現に第二条の規定による改正前の産業標準化法（以下「旧法」という。）第十九条第一項の規定により指定された品目の鉱工業品"},
+      {"pid": "s15.a5.p1", "sent": 1, "part": "supplAmend", "text": "旧法第十九条第二項の規定は、なお効力を有する。"}
+    ],
+    "expectedPid": "s15.a5.p1",
+    "expected": [
+      {"mention": "旧法第十九条第二項", "tgtLaw": "324AC0000000185", "tgtPid": "m.a19.p2", "rule": "L2-abbrev"}
+    ]
+  },
+  {
+    "id": "v3-hyo-1",
+    "rule": "L6-provision",
+    "lawId": "329CO0000000155",
+    "pid": "m.a48.p1.i1",
+    "text": "第四十七条第一項の表第一号に掲げる原料品については、同号に掲げる輸出貨物に含まれる鉛の量と等量の鉛を含む当該原料品の数量",
+    "expected": [
+      {"mention": "第四十七条第一項の表第一号", "tgtLaw": "329CO0000000155", "tgtPid": "m.a47.p1", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-hyo-2",
+    "rule": "L6-provision",
+    "lawId": "329CO0000000155",
+    "pid": "m.a48.p1.i8",
+    "text": "第四十七条第一項の表第八号の税関長の承認を受けた輸出貨物の製造に使用される原料品については、税関長の承認を受けた当該原料品の製造歩留まり等からみて当該輸出貨物の製造に使用されたと認められる当該原料品の数量",
+    "expected": [
+      {"mention": "第四十七条第一項の表第八号", "tgtLaw": "329CO0000000155", "tgtPid": "m.a47.p1", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "v3-lawlevel-fusoku-1",
+    "rule": "L5-name",
+    "lawId": "328AC0100000227",
+    "title": "労働金庫法",
+    "pid": "s8.a11.p1",
+    "part": "supplAmend",
+    "text": "この法律の施行前にした行為及び銀行法附則の規定によりなお従前の例によることとされる事項に係るこの法律の施行後にした行為に対する罰則の適用については、なお従前の例による。",
+    "expected": [
+      {"mention": "銀行法附則の規定", "tgtLaw": "356AC0000000059", "tgtPid": null, "rule": "L5-name", "flagsNamed": ["lawLevelOnly"]}
+    ]
+  },
+  {
+    "id": "v3-lawlevel-hen-1",
+    "rule": "L5-name",
+    "lawId": "508CO0000000106",
+    "title": "防衛特別所得税に関する政令",
+    "lawType": "CabinetOrder",
+    "pid": "m.a8.p1",
+    "text": "法第五条の十六第一項の規定により還付する防衛特別所得税については、所得税法施行令第二編第五章第三節第一款及び第二百九十七条の規定を準用する。",
+    "expected": [
+      {"mention": "所得税法施行令第二編第五章第三節第一款", "tgtLaw": "340CO0000000096", "tgtPid": null, "kind": "junyo", "rule": "L5-name", "flagsNamed": ["lawLevelOnly"]}
+    ]
+  },
+  {
+    "id": "v3-lawlevel-yoshiki-1",
+    "rule": "L5-name",
+    "lawId": "324M50000804001",
+    "title": "水先法施行規則",
+    "lawType": "MinisterialOrdinance",
+    "pid": "s96.p2",
+    "part": "supplAmend",
+    "text": "第四条の規定による改正前の船舶職員及び小型船舶操縦者法施行規則第四号様式による海技免状は、なお従前の例による。",
+    "expected": [
+      {"mention": "改正前の船舶職員及び小型船舶操縦者法施行規則第四号様式", "tgtLaw": "326M50000800091", "tgtPid": null, "rule": "L5-name", "flagsNamed": ["lawLevelOnly"]}
+    ]
+  },
+  {
+    "id": "v3-lawlevel-yoshiki-2",
+    "rule": "L5-name",
+    "lawId": "326M50000800075",
+    "title": "道路運送法施行規則",
+    "lawType": "MinisterialOrdinance",
+    "pid": "s67.a2.p1",
+    "part": "supplAmend",
+    "text": "この省令の規定による改正後の道路運送法施行規則第二号様式は、この省令の施行の日以後に自家用有償旅客運送者登録簿にする登録について適用する。",
+    "expected": [
+      {"mention": "改正後の道路運送法施行規則第二号様式", "tgtLaw": "326M50000800075", "tgtPid": null, "rule": "L5-name", "flagsNamed": ["lawLevelOnly"]}
+    ]
+  },
+  {
+    "id": "v3-chu-norin-1",
+    "rule": "L5-name",
+    "lawId": "323AC0000000193",
+    "title": "損害保険料率算出団体に関する法律",
+    "pid": "s27.p1.i3",
+    "part": "supplAmend",
+    "text": "第九十条中農林中央金庫法第四十六条の三の次に一条を加える改正規定は、公布の日から施行する。",
+    "expected": [
+      {"mention": "農林中央金庫法第四十六条の三", "tgtLaw": "413AC0000000093", "tgtPid": "m.a46_3", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-chu-niju-1",
+    "rule": "L5-name",
+    "lawId": "328AC0100000227",
+    "title": "労働金庫法",
+    "pid": "s95.p1.i3",
+    "part": "supplAmend",
+    "text": "第百条の規定（同条中中小企業団体の組織に関する法律第百十三条第一項第十三号の改正規定を除く。）は、公布の日から施行する。",
+    "expected": [
+      {"mention": "中小企業団体の組織に関する法律第百十三条第一項第十三号", "tgtLaw": "332AC0000000185", "tgtPid": "m.a113.p1.i13", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-chu-norin-2",
+    "rule": "L5-name",
+    "lawId": "360AC0000000033",
+    "title": "電子情報処理組織による登記事務処理の円滑化のための措置等に関する法律",
+    "pid": "s12.p1.i3",
+    "part": "supplAmend",
+    "text": "第九十条中農林中央金庫法第四十六条の三の次に一条を加える改正規定及び同法第四十七条第三項の改正規定",
+    "expected": [
+      {"mention": "農林中央金庫法第四十六条の三", "tgtLaw": "413AC0000000093", "tgtPid": "m.a46_3", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-chu-niju-2",
+    "rule": "L5-name",
+    "lawId": "323AC0000000193",
+    "title": "損害保険料率算出団体に関する法律",
+    "pid": "s27.p1.i3",
+    "part": "supplAmend",
+    "text": "第百条の規定（同条中中小企業団体の組織に関する法律第百十三条の改正規定を除く。）は、施行する。",
+    "expected": [
+      {"mention": "中小企業団体の組織に関する法律第百十三条", "tgtLaw": "332AC0000000185", "tgtPid": "m.a113", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-kata-nioite-1",
+    "rule": "L5-name",
+    "lawId": "212IO0000000439",
+    "title": "恩給金額分担及国庫納金収入等取扱規則",
+    "lawType": "Rule",
+    "pid": "m.a10.p2",
+    "text": "各省各庁ノ長ハ前項ノ規定ニ依リ控除シタル金額ヲ歳入ニ組入レムトスル場合ニ於テ会計法第四条ノ二第一項又ハ第二項ノ規定ニ依リ其ノ歳入ノ徴収ニ関スル事務ヲ委任スルトキハ当該支出官ニ委任スルモノトス",
+    "expected": [
+      {"mention": "会計法第四条ノ二第一項", "tgtLaw": "322AC0000000035", "tgtPid": "m.a4_2.p1", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-kata-nioite-2",
+    "rule": "L5-name",
+    "lawId": "212AC0000000048",
+    "pid": "s3.a7.p3",
+    "part": "supplAmend",
+    "text": "前二項ノ場合ニ於テハ恩給法第五条ニ規定スル請求期間ハ昭和十三年四月一日ヨリ之ヲ起算ス",
+    "expected": [
+      {"mention": "恩給法第五条", "tgtLaw": "212AC0000000048", "tgtPid": "m.a5", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-kata-yori-1",
+    "rule": "L5-name",
+    "lawId": "306IO0000000203",
+    "title": "昭和六年勅令第二百三号",
+    "lawType": "ImperialOrder",
+    "pid": "m.a2.p2",
+    "text": "前項ノ場合ニ於テ恩給法第十七条第一項ノ規定ニ依リ国庫ガ国庫以外ノ経済ニ恩給金額ノ分担ヲ請求シ得ルトキハ当該公務員若ハ之ニ準ズベキ者又ハ其ノ遺族ノ恩給額ヨリ恩給法施行令第四条第一項乃至第四項ノ規定ニ依リ算定シタル分担請求額ヲ控除シタル残額ヲ当該特別会計ノ負担額トス",
+    "expected": [
+      {"mention": "恩給法施行令第四条第一項乃至第四項", "tgtLaw": "000COENKYUUREI", "tgtPid": "m.a4.p1", "tgtEnd": "m.a4.p4", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-kata-yori-2",
+    "rule": "L5-name",
+    "lawId": "131AC0000000011",
+    "pid": "m.a76.p1",
+    "text": "民法施行前ニ民法第七条又ハ第十一条ニ掲ケタル原因ノ為メニ後見人ヲ附シタル者アル場合ニ於テ後見人其他民法第七条ニ掲ケタル者ノ請求ニ因リ禁治産ノ宣告アリタルトキハ後見人ハ其宣告ノ時ヨリ民法ノ規定ニ従ヒテ後見人ノ任務ヲ行フ",
+    "expected": [
+      {"mention": "民法第七条", "tgtLaw": "129AC0000000089", "tgtPid": "m.a7", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "v3-drop-abbrev-1",
+    "rule": "L2-abbrev",
+    "lawId": "415AC0000000027",
+    "title": "株式会社産業再生機構法",
+    "pid": "m.a23.p1",
+    "text": "機構は、支援決定を行ったときは、直ちに、その対象となった事業者（以下「対象事業者」という。）の債権者である金融機関等に対し、当該関係金融機関等が対象事業者に対して有するすべての債権につき申込みをする。",
+    "forbiddenMentions": ["対象事業者"],
+    "expected": []
+  },
+  {
+    "id": "v3-drop-abbrev-2",
+    "rule": "L2-abbrev",
+    "lawId": "326AC0000000204",
+    "title": "高圧ガス保安法",
+    "pid": "m.a56_3.p1",
+    "text": "経済産業省令で定める設備（以下「特定設備」という。）の製造をする者は、その特定設備について、経済産業大臣の登録を受けることができる。",
+    "forbiddenMentions": ["特定設備"],
+    "expected": []
+  }
+]

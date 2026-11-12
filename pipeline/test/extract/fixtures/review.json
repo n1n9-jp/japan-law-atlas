@@ -1,0 +1,176 @@
+[
+  {
+    "id": "l5-minpo-dai-kanji",
+    "rule": "L5-name",
+    "lawId": "129AC0000000089",
+    "pid": "m.a1.p1",
+    "text": "民法第九十条の規定は、適用する。",
+    "expected": [
+      {"mention": "民法第九十条", "tgtLaw": "129AC0000000089", "tgtPid": "m.a90", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "l5-chu-kanzei",
+    "rule": "L5-name",
+    "lawId": "129AC0000000089",
+    "pid": "s1.a1.p1",
+    "part": "supplAmend",
+    "text": "第一条中関税法第三条の改正規定",
+    "expected": [
+      {"mention": "第一条", "tgtLaw": null, "tgtPid": "m.a1", "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L6-provision"},
+      {"mention": "関税法第三条", "tgtLaw": "329AC0000000061", "tgtPid": "m.a3", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "l5-amending-title-kyoiku",
+    "rule": "L5-name",
+    "lawId": "332CO0000000043",
+    "pid": "s1.a1.p1",
+    "part": "suppl",
+    "text": "この政令は、学校教育法の一部を改正する法律の施行の日から施行する。",
+    "exact": true,
+    "expected": [
+      {"mention": "この政令", "tgtLaw": "332CO0000000043", "kind": "cite", "rule": "L4-self", "tgtStatus": "self"},
+      {"mention": "学校教育法の一部を改正する法律", "tgtLaw": null, "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "amend-verb-suisen",
+    "rule": "amend",
+    "lawId": "322AC0000000135",
+    "pid": "s1.p1",
+    "part": "suppl",
+    "text": "水先法の一部を次のように改正する。",
+    "expected": [
+      {"mention": "水先法", "tgtLaw": "324AC0000000121", "kind": "amend", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "l3-type-toshikei",
+    "rule": "L3-anaphora",
+    "lawId": "332CO0000000043",
+    "pid": "m.a1.p1",
+    "text": "都市計画法第二十九条の規定及び都市計画法施行令第三十四条の規定を準用する場合における同法第二十九条の適用については、この限りでない。",
+    "expected": [
+      {"mention": "都市計画法第二十九条", "tgtLaw": "343AC0000000100", "tgtPid": "m.a29", "kind": "junyo", "rule": "L5-name"},
+      {"mention": "都市計画法施行令第三十四条", "tgtLaw": "344CO0000000158", "tgtPid": "m.a34", "kind": "junyo", "rule": "L5-name"},
+      {"mention": "同法第二十九条", "tgtLaw": "343AC0000000100", "tgtPid": "m.a29", "kind": "cite", "rule": "L3-anaphora"}
+    ]
+  },
+  {
+    "id": "supplamend-bare-article",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "text": "第二条の規定による改正後の民法第九十条の規定を適用する。",
+    "expected": [
+      {"mention": "第二条", "tgtLaw": null, "tgtPid": "m.a2", "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L6-provision"},
+      {"mention": "改正後の民法第九十条", "tgtLaw": "129AC0000000089", "tgtPid": "m.a90", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "supplamend-fusoku-article",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "articles": ["s2.a1", "s2.a3"],
+    "text": "附則第三条の規定を適用する。",
+    "expected": [
+      {"mention": "附則第三条", "tgtLaw": "129AC0000000089", "tgtPid": "s2.a3", "tgtStatus": "self", "kind": "cite", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "supplamend-fusoku-missing",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "articles": ["s2.a1"],
+    "text": "附則第三条の規定を適用する。",
+    "expected": [
+      {"mention": "附則第三条", "tgtLaw": null, "tgtPid": "s1.a3", "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "l2-kaiseiho-fusoku",
+    "rule": "L2-abbrev",
+    "lawId": "332CO0000000043",
+    "pid": "s2.a2.p1",
+    "part": "supplAmend",
+    "sentences": [
+      {"pid": "s2.a1.p1", "sent": 1, "part": "supplAmend", "text": "民法（明治二十九年法律第八十九号。以下「改正法」という。）の一部を次のように改正する。"},
+      {"pid": "s2.a2.p1", "sent": 1, "part": "supplAmend", "text": "改正法附則第四条第一項の規定を適用する。"}
+    ],
+    "expectedPid": "s2.a2.p1",
+    "expected": [
+      {"mention": "改正法附則第四条第一項", "tgtLaw": "129AC0000000089", "tgtPid": "s1.a4.p1", "rule": "L2-abbrev"}
+    ]
+  },
+  {
+    "id": "l5-amending-title-fusoku",
+    "rule": "L5-name",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "text": "民法の一部を改正する法律附則第三条第三項の規定を適用する。",
+    "expected": [
+      {"mention": "民法の一部を改正する法律附則第三条第三項", "tgtLaw": null, "tgtPid": "s1.a3.p3", "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L5-name"}
+    ]
+  },
+  {
+    "id": "enum-kosei-fusoku",
+    "rule": "L6-provision",
+    "lawId": "332CO0000000043",
+    "pid": "m.a1.p1",
+    "text": "厚生年金保険法第八十七条第一項及び附則第十七条の十四の規定を適用する。",
+    "expected": [
+      {"mention": "厚生年金保険法第八十七条第一項", "tgtLaw": "329AC0000000115", "tgtPid": "m.a87.p1", "kind": "cite", "rule": "L5-name"},
+      {"mention": "附則第十七条の十四", "tgtLaw": "329AC0000000115", "tgtPid": "s1.a17_14", "kind": "cite", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "l1-bare-num-fusoku",
+    "rule": "L1-number",
+    "lawId": "129AC0000000089",
+    "pid": "s2.a1.p1",
+    "part": "supplAmend",
+    "text": "昭和六十年法律第三十四号附則第五条の規定を適用する。",
+    "expected": [
+      {"mention": "昭和六十年法律第三十四号附則第五条", "tgtLaw": null, "tgtPid": "s1.a5", "tgtStatus": "amendingLaw", "kind": "cite", "rule": "L1-number"}
+    ]
+  },
+  {
+    "id": "iroha-enum-i-ro",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "m.a1.p1",
+    "text": "第一号イ及びロの規定を適用する。",
+    "expected": [
+      {"mention": "第一号イ", "tgtLaw": "129AC0000000089", "tgtPid": "m.a1.p1.i1.i1", "kind": "cite", "rule": "L6-provision"},
+      {"mention": "ロ", "tgtLaw": "129AC0000000089", "tgtPid": "m.a1.p1.i1.i2", "kind": "cite", "rule": "L6-provision"}
+    ]
+  },
+  {
+    "id": "iroha-honi-katakana",
+    "rule": "L6-provision",
+    "lawId": "129AC0000000089",
+    "pid": "m.a1.p1",
+    "text": "第一号ホニ規定スル場合",
+    "expected": [
+      {"mention": "第一号ホ", "tgtLaw": "129AC0000000089", "tgtPid": "m.a1.p1.i1.i5", "kind": "cite", "rule": "L6-provision"}
+    ],
+    "forbiddenMentions": ["ニ", "ホニ"]
+  },
+  {
+    "id": "l5-niyoru-title",
+    "rule": "L5-name",
+    "lawId": "332CO0000000043",
+    "pid": "m.a1.p1",
+    "text": "民法による解除については、この限りでない。",
+    "expected": [
+      {"mention": "民法", "tgtLaw": "129AC0000000089", "kind": "cite", "rule": "L5-name"}
+    ]
+  }
+]
