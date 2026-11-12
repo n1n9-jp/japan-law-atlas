@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# 法令アトラスを Vercel 本番（hourei-atlas）へ再公開する。
+# 法令アトラスを Vercel 本番（hourei-atlas）へ再公開する非常用スクリプト。
+# 通常の公開は main への push。データ更新は README の手順。
 # 使い方:
-#   VERCEL_TOKEN=… ./scripts/publish-atlas.sh
-#   VERCEL_TOKEN=… ./scripts/publish-atlas.sh --snapshot 20261009
+#   VERCEL_TOKEN=… ./scripts/publish-atlas.sh --emergency-cli --snapshot 20261009
+# Git 連携が壊れたときだけ使う。次の main への push で上書きされる。
 # 作業コピーは ~/work/web。リポジトリの web/ からコピーする。.vercel/ は VM だけ。
-# GitHub からの自動公開への切り替えは、このスクリプトの対象外。
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -12,8 +12,9 @@ STORE="${HOUREI_STORE:-${STORE:-/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c05
 WORK="${WORK:-$HOME/work/web}"
 SCOPE="n1n9jps-projects"
 PROJECT="hourei-atlas"
-SNAPSHOT="mock-20261008"
+SNAPSHOT="20261009"
 SKIP_CHECKS=0
+EMERGENCY=0
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -21,6 +22,7 @@ while [[ $# -gt 0 ]]; do
     --store) STORE="$2"; shift 2 ;;
     --work) WORK="$2"; shift 2 ;;
     --skip-checks) SKIP_CHECKS=1; shift ;;
+    --emergency-cli) EMERGENCY=1; shift ;;
     -h|--help)
       sed -n '2,8p' "$0"
       exit 0
@@ -28,6 +30,12 @@ while [[ $# -gt 0 ]]; do
     *) echo "unknown arg: $1" >&2; exit 2 ;;
   esac
 done
+
+if [[ "$EMERGENCY" -eq 0 ]]; then
+  echo "本番は main への push で公開されます。データ更新は README の手順で。" >&2
+  echo "Git 連携が壊れたときだけ --emergency-cli を付けてください（次の push で上書きされます）。" >&2
+  exit 1
+fi
 
 if [[ -z "${VERCEL_TOKEN:-}" ]]; then
   echo "VERCEL_TOKEN がありません。Cloud Agents の Secrets にチーム n1n9jps-projects のトークンを入れてください。" >&2
