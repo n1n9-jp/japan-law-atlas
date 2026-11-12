@@ -1,8 +1,8 @@
 # hourei-atlas-web
 
-法令アトラスの Web（Next.js 16.4.4）。セットアップと公開の手順はリポジトリ直下の [README.md](../README.md) を見てください。
+法令アトラスの Web（Next.js 16.4.5）。セットアップと公開の手順はリポジトリ直下の [README.md](../README.md) を見てください。
 
-仮データは `public/data/mock-20261008/`。共有コードの正本は `../shared/`。コピーは `npm run sync:shared`。
+配信データは `public/data/20261009/`（e-Gov 法令検索の法令データを加工したもの）。軽く試すなら `npm run data:copy -- --snapshot mock-20261008`（コミットしない）。共有コードの正本は `../shared/`。コピーは `npm run sync:shared`。
 
 ```bash
 npm ci
@@ -15,5 +15,6 @@ npm run build
 
 ```bash
 export HOUREI_STORE=/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3
-npm run data:copy -- --snapshot 20261009
+npm run data:copy -- --snapshot 20261009 --validate
+VERCEL_ENV=production npm run check:deploy-data
 ```

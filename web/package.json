@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:vercel": "npm run check:deploy-data && next build",
     "start": "next start",
     "lint": "eslint",
     "lint:motion": "tsx scripts/lint-motion.ts",
@@ -21,6 +22,7 @@
     "screens:check": "tsx scripts/check-screens.ts",
     "sync:shared": "tsx scripts/sync-shared.ts",
     "check:shared": "tsx scripts/sync-shared.ts --check",
+    "check:deploy-data": "tsx scripts/check-deploy-data.ts",
     "typecheck": "tsc --noEmit",
     "verify:prod": "tsx scripts/verify-prod.ts"
   },

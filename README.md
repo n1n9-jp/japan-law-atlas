@@ -8,14 +8,14 @@
 
 | ディレクトリ | 内容 |
 | --- | --- |
-| `web/` | Next.js 16.4.4 のサイト（deck.gl） |
+| `web/` | Next.js 16.4.5 のサイト（deck.gl） |
 | `pipeline/` | コーパス・参照抽出・評価・グラフ・配信データの作成 |
 | `shared/` | Web とパイプラインが共有する契約・スキーマ・文の取り出し |
-| `scripts/` | 公開スクリプト（`publish-atlas.sh` など） |
+| `scripts/` | 非常用の公開スクリプト（`publish-atlas.sh`） |
 | `docs/` | 計画と先行事例 |
 | `specs/` | 実装仕様 |
 
-生成データ（生 XML、コーパス、参照、配信 JSON）は Git に入れていません。正本は Cursor Project の Context です。
+生 XML、コーパス、抽出結果などの中間データは Git に入れていません。正本は Cursor Project の Context です。配信データ `web/public/data/` だけはリポジトリに入れます（いまのスナップショットは `20261009`）。これは [e-Gov 法令検索](https://laws.e-gov.go.jp/) の法令データ（公共データ利用規約）を加工したものです。
 
 ```
 /cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3/data/
@@ -26,7 +26,7 @@
 
 ## セットアップ
 
-Node.js 22 が必要です。リポジトリに入っている仮データ（`web/public/data/mock-20261008/`）だけでサイトはビルドできます。
+Node.js 22 が必要です。リポジトリには本番の配信データ（`web/public/data/20261009/`）が入っています。軽く試すなら `npm run data:copy -- --snapshot mock-20261008`（コミットしない）。
 
 ```bash
 cd web
@@ -71,7 +71,7 @@ Web に載せる:
 ```bash
 export HOUREI_STORE=/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3
 cd web
-npm run data:copy -- --snapshot 20261009
+npm run data:copy -- --snapshot 20261009 --validate
 ```
 
 `data/web/{id}/refs` が欠けるときは、`data/graph/{id}/web.tar.gz` を展開したものを使います（`data:copy` が自動で試します）。検査は `--validate` を付けたときだけです。
@@ -80,19 +80,38 @@ npm run data:copy -- --snapshot 20261009
 
 ## 公開手順
 
-いまの本番は Vercel プロジェクト `hourei-atlas` の手動デプロイです。このリポジトリからの自動公開への切り替えは、別作業です。
+本番は Vercel プロジェクト `hourei-atlas`（チーム `n1n9jps-projects`）です。GitHub リポジトリ `n1n9-jp/japan-law-atlas` の `main` に push すると、Vercel が自動で本番 `https://hourei-atlas.vercel.app` を更新します。Root Directory は `web`。ビルドは `npm run build:vercel`（本番ガードのあと `next build`）。新しい環境変数は要りません。
+
+共有するのは本番エイリアス `https://hourei-atlas.vercel.app` だけです。デプロイ固有 URL や `*-n1n9jps-projects.vercel.app` はチーム保護でログイン画面に飛びます。Preview の URL も渡さないでください。
+
+`main` への直接 push がそのまま本番になります。ブランチ保護は付けていません。`web/` の外だけを変えたコミットでは、Vercel はビルドを省きます。
+
+### 配信データの更新
+
+1. 上の「データの作り方」で Context に `data/web/<id>/` と `data/graph/<id>/web.tar.gz` を作る。
+2. `git checkout -b cursor/data-<id>-<suffix> origin/main && cd web && npm ci`
+3. `HOUREI_STORE=/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3 npm run data:copy -- --snapshot <id> --validate`
+4. `VERCEL_ENV=production npm run check:deploy-data && npm test && npm run build`
+5. `git add -A public/data && git commit -m "配信データを <id> に更新"`。`git status --porcelain` が空であること（データ以外は入れない）。
+6. push して PR を作る。Preview が `READY` になったら、中身は `npx vercel@latest curl /data/latest.json --deployment <url>` で見る。マージすると本番に自動で出る。`npm run verify:prod -- --url https://hourei-atlas.vercel.app` で確かめる。
+
+古いスナップショットは同じコミットで消えます。開いたままのタブが古い `dataPath` の `refs` を読むと 404 になります。
+
+### 非常用の CLI デプロイ
+
+Git 連携が壊れたときだけ使います。次の `main` への push で上書きされます。
 
 ```bash
 export VERCEL_TOKEN=…          # チーム n1n9jps-projects のトークン
 export HOUREI_STORE=/cursor/stores/bc-01a11c40-8a0f-7b38-81c5-e33c052bc7d3
-./scripts/publish-atlas.sh --snapshot 20261009
+./scripts/publish-atlas.sh --emergency-cli --snapshot 20261009
 ```
 
-共有するのは本番エイリアス `https://hourei-atlas.vercel.app` だけです。デプロイ固有 URL や `*-n1n9jps-projects.vercel.app` はチーム保護でログイン画面に飛びます。
+引数なしで実行すると案内を出して止まります。
 
 ## 出典
 
-- 法令の本文と識別子は [e-Gov 法令検索](https://laws.e-gov.go.jp/) の法令データ（公共データ利用規約）を加工して作成しています。
+- 法令の本文と識別子、およびリポジトリの `web/public/data/` に入っている配信 JSON は、[e-Gov 法令検索](https://laws.e-gov.go.jp/) の法令データ（公共データ利用規約）を加工して作成しています。
 - 略称・別名辞書は [JLaw-CiteGraph](https://github.com/yabooung/jp-law-citation-graph)（Apache License 2.0）のソースを `pipeline/vendor/jlawcite/` に置いて使っています。JLaw プロジェクト全体の評価データは CC BY 4.0 です。
 
 ## ライセンス
